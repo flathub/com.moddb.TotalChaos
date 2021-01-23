@@ -22,9 +22,9 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        url: https://www.dropbox.com/s/s3n8qho3pylx9jj/totalchaos_standalone_1000b.zip?dl=1
-        sha256: bb1f22e5bbb464f3e89f915573fcc7d0d2df64aed1602c8b4ce6156b383abcda
-        dest-filename: totalchaos_standalone_1000b.zip
+        url: https://www.dropbox.com/sh/93rt8tqpn3i44zp/AAArEDsQrEz5ntHCF2QZz3GLa/totalchaos_dc_b3.zip?dl=1
+        sha256: ff92cfd5dc4f67b1c048e1d493a49de7bd7369543d7b410bd5c10022776a07ae
+        dest-filename: totalchaos_dc_b3.zip
       - type: file
         path: com.moddb.TotalChaos.appdata.xml
       - type: file
