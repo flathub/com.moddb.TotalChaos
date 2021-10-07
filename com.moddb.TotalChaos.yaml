@@ -45,8 +45,8 @@ modules:
       - -DLIB_SUFFIX=
     sources:
       - type: archive
-        url: https://github.com/FluidSynth/fluidsynth/archive/v2.0.8.tar.gz
-        sha256: 0c37e72db31d1b35e587b94b7163d68444cffaa9e7fe8a293d79957620bff117
+        url: https://github.com/FluidSynth/fluidsynth/archive/v2.1.9.tar.gz
+        sha256: 365642cc64bafe0491149ad643ef7327877f99412d5abb93f1fa54e252028484
 
   - name: gzdoom
     buildsystem: cmake-ninja
@@ -55,12 +55,12 @@ modules:
       - -DSEND_ANON_STATS=OFF
     sources:
       - type: archive
-        url: https://github.com/coelckers/gzdoom/archive/g3.6.0.tar.gz
-        sha256: c90912b77f1b545d5a861a71098507328a01e81a697c3a69acf5777579f01dd1
+        url: https://github.com/coelckers/gzdoom/archive/g4.7.0.tar.gz
+        sha256: 60549ea3597496cadec97e4f6958422c22b4cf5d6693552cf4f8deeaca53efeb
       - type: patch
         path: gzdoom-gme-clang-support.patch
       - type: file
-        url: https://github.com/coelckers/gzdoom/raw/g3.6.0/soundfont/gzdoom.sf2
+        url: https://github.com/coelckers/gzdoom/raw/g4.7.0/soundfont/gzdoom.sf2
         sha256: fca3e514b635a21789d4224e84865d2954a2a914d46b64aa8219ddb565c44869
       - type: shell
         commands:
