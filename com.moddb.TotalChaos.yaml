@@ -84,7 +84,7 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        url: https://github.com/freedoom/freedoom/releases/download/v0.11.3/freedoom-0.11.3.zip
-        sha256: 28a5eafbb1285b78937bd408fcdd8f25f915432340eee79da692eae83bce5e8a
+        url: https://github.com/freedoom/freedoom/releases/download/v0.12.1/freedoom-0.12.1.zip
+        sha256: f42c6810fc89b0282de1466c2c9c7c9818031a8d556256a6db1b69f6a77b5806
     build-commands:
       - install -Dm 644 freedoom2.wad /app/share/games/doom
