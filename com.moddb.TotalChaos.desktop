@@ -7,3 +7,4 @@ Keywords=first;person;shooter;doom;
 Categories=Game;ActionGame;
 Exec=gzdoom.sh
 StartupWMClass=gzdoom
+PrefersNonDefaultGPU=true
