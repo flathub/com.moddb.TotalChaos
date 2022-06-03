@@ -45,8 +45,8 @@ modules:
       - -DLIB_SUFFIX=
     sources:
       - type: archive
-        url: https://github.com/FluidSynth/fluidsynth/archive/v2.1.9.tar.gz
-        sha256: 365642cc64bafe0491149ad643ef7327877f99412d5abb93f1fa54e252028484
+        url: https://github.com/FluidSynth/fluidsynth/archive/v2.2.7.tar.gz
+        sha256: 460d86d8d687f567dc4780890b72538c7ff6b2082080ef2f9359d41670a309cf
 
   - name: zmusic
     buildsystem: cmake-ninja
@@ -64,10 +64,10 @@ modules:
       - -DSEND_ANON_STATS=OFF
     sources:
       - type: archive
-        url: https://github.com/coelckers/gzdoom/archive/g4.7.0.tar.gz
-        sha256: 60549ea3597496cadec97e4f6958422c22b4cf5d6693552cf4f8deeaca53efeb
+        url: https://github.com/coelckers/gzdoom/archive/g4.7.1.tar.gz
+        sha256: 454257582be0576501eef1efc99fe7ea70f1c4d7993549db3cbc709ce75fc102
       - type: file
-        url: https://github.com/coelckers/gzdoom/raw/g4.7.0/soundfont/gzdoom.sf2
+        url: https://github.com/coelckers/gzdoom/raw/g4.7.1/soundfont/gzdoom.sf2
         sha256: fca3e514b635a21789d4224e84865d2954a2a914d46b64aa8219ddb565c44869
       - type: shell
         commands:
