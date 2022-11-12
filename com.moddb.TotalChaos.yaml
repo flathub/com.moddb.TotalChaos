@@ -22,9 +22,8 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        url: https://www.dropbox.com/sh/93rt8tqpn3i44zp/AAArEDsQrEz5ntHCF2QZz3GLa/totalchaos_dc_b3.zip?dl=1
+        url: https://dl.flathub.org/sources/com.moddb.TotalChaos/totalchaos_dc_b3.zip
         sha256: ff92cfd5dc4f67b1c048e1d493a49de7bd7369543d7b410bd5c10022776a07ae
-        dest-filename: totalchaos_dc_b3.zip
       - type: file
         path: com.moddb.TotalChaos.appdata.xml
       - type: file
