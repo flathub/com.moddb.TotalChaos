@@ -49,6 +49,8 @@ modules:
 
   - name: gzdoom
     buildsystem: cmake-ninja
+    build-options:
+      cxxflags: -std=c++17
     config-opts:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
       - -DSEND_ANON_STATS=OFF
