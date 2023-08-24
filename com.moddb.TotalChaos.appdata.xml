@@ -41,7 +41,9 @@
     <content_attribute id="drugs-tobacco">moderate</content_attribute>
   </content_rating>
   <releases>
-    <release date="2022-08-08" version="1.40"/>
+    <release date="2022-08-08" version="1.40">
+      <url>https://www.moddb.com/mods/total-chaos/downloads/total-chaos-directors-cut-140</url>
+    </release>
     <release date="2021-01-23" version="1.32"/>
     <release date="2018-12-09" version="1.0"/>
     <release date="2018-11-14" version="0.97.6"/>

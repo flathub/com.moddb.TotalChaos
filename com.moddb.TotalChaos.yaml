@@ -43,10 +43,10 @@ modules:
       - type: script
         commands:
           - "[ ! -f ~/.config/gzdoom/gzdoom.ini ] && cp /app/share/games/doom/gzdoom_portable.ini ~/.config/gzdoom/gzdoom.ini"
-          - "gzdoom -file totalchaos.pk3 +fluid_patchset /app/share/games/doom/soundfonts/gzdoom.sf2 $@"
+          - "exec gzdoom -file totalchaos.pk3 +fluid_patchset /app/share/games/doom/soundfonts/gzdoom.sf2 $@"
         dest-filename: gzdoom.sh
     post-install:
-      - install -D gzdoom.sh /app/bin/gzdoom.sh
+      - install -Dm 755 gzdoom.sh /app/bin/gzdoom.sh
 
   - name: freedoom2
     buildsystem: simple
