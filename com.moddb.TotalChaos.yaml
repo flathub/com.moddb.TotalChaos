@@ -1,6 +1,6 @@
 app-id: com.moddb.TotalChaos
 runtime: org.freedesktop.Platform
-runtime-version: '22.08'
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 command: gzdoom.sh
 finish-args:
@@ -10,42 +10,54 @@ finish-args:
   - --share=ipc
   - --socket=pulseaudio
   - --env=DOOMWADDIR=/app/share/games/doom
+  - --env=PROGDIR=/app/share/games/doom
   - --persist=.config/gzdoom
+  # Simpler way of preventing KDE related errors
+  - --env=KDE_FULL_SESSION=false
 cleanup:
   - /include
   - /lib/*.a
   - /lib/*.la
-  - /lib/pkgconfig
+  - /lib*/cmake
+  - /lib*/pkgconfig
+  - /lib*/source
+  - /lib*/debug
+  - /share/doc
   - /share/man
+  - /share/help
 modules:
   - shared-modules/linux-audio/fluidsynth2.json
 
   - name: zmusic
     buildsystem: cmake-ninja
     config-opts:
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_BUILD_TYPE=Release
     sources:
-      - type: git
-        url: https://github.com/ZDoom/ZMusic.git
-        commit: 75d2994b4b1fd6891b20819375075a2976ee34de
+      - type: archive
+        url: https://github.com/ZDoom/ZMusic/archive/1.1.13.tar.gz
+        sha256: 564e210837b653013e01d67f04d0d906a9f0a923521e0c305463ec4f4a139ed4
+    build-commands:
+      - cd /app/lib && ln -s ../lib64/libzmusic.so.1 libzmusic.so.1
 
   - name: gzdoom
     buildsystem: cmake-ninja
-    build-options:
-      cxxflags: -std=c++17
     config-opts:
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-      - -DSEND_ANON_STATS=OFF
+      - -DCMAKE_BUILD_TYPE=Release
+    build-options:
+      env:  
+        CXXFLAGS: -Wno-error=template-id-cdtor -Wno-template-id-cdtor
     sources:
       - type: archive
-        url: https://github.com/coelckers/gzdoom/archive/g4.10.0.tar.gz
+        url: https://github.com/ZDoom/gzdoom/archive/refs/tags/g4.10.0.tar.gz
         sha256: 8702522c05048dfd4a765c6ac82a270d8bd0942e813d5bc6f4b69795a5d23a20
+      - type: patch
+        path: gcc14.patch
       - type: script
         commands:
-          - "[ ! -f ~/.config/gzdoom/gzdoom.ini ] && cp /app/share/games/doom/gzdoom_portable.ini ~/.config/gzdoom/gzdoom.ini"
-          - "exec gzdoom -file totalchaos.pk3 +fluid_patchset /app/share/games/doom/soundfonts/gzdoom.sf2 $@"
+          - '[ ! -f ~/.config/gzdoom/gzdoom.ini ] && cp /app/share/games/doom/gzdoom_portable.ini ~/.config/gzdoom/gzdoom.ini'
+          - 'exec gzdoom -file totalchaos.pk3 +fluid_patchset /app/share/games/doom/soundfonts/gzdoom.sf2 "$@"'
         dest-filename: gzdoom.sh
-    post-install:
+    build-commands:
       - install -Dm 755 gzdoom.sh /app/bin/gzdoom.sh
 
   - name: freedoom2
@@ -61,8 +73,8 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        url: https://dl.flathub.org/sources/com.moddb.TotalChaos/totalchaos_dc_b5.zip
-        sha256: d2da9bce6d4d350c3fb58b6df86109608ef38b16781d84f1a74d36b09f475a90
+        url: https://github.com/mbugni/totalchaos-gamedata/releases/download/v1.40.0/totalchaos-gamedata.tgz
+        sha256: d550535076a6ed012e74866ec91a5d70989aa29fd01b8b329a25702409c3146c
       - type: file
         path: com.moddb.TotalChaos.appdata.xml
       - type: file
@@ -71,7 +83,8 @@ modules:
         path: com.moddb.TotalChaos.png
     build-commands:
       - install -Dm 644 totalchaos.pk3 -t /app/share/games/doom
+      - install -Dm 644 zd_extra.pk3 -t /app/share/games/doom
       - install -Dm 644 gzdoom_portable.ini -t /app/share/games/doom
-      - install -Dm 644 com.moddb.TotalChaos.appdata.xml -t /app/share/appdata
-      - install -Dm 644 com.moddb.TotalChaos.desktop -t /app/share/applications
-      - install -Dm 644 com.moddb.TotalChaos.png -t /app/share/icons/hicolor/128x128/apps
+      - install -Dm 644 ${FLATPAK_ID}.appdata.xml -t /app/share/appdata
+      - install -Dm 644 ${FLATPAK_ID}.desktop -t /app/share/applications
+      - install -Dm 644 ${FLATPAK_ID}.png -t /app/share/icons/hicolor/128x128/apps
