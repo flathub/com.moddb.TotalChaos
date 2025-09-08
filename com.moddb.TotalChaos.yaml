@@ -1,6 +1,6 @@
 app-id: com.moddb.TotalChaos
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: gzdoom.sh
 finish-args:
@@ -43,6 +43,7 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     build-options:
       env:  
         CXXFLAGS: -Wno-error=template-id-cdtor -Wno-template-id-cdtor
