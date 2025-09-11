@@ -53,6 +53,8 @@ modules:
         sha256: 8702522c05048dfd4a765c6ac82a270d8bd0942e813d5bc6f4b69795a5d23a20
       - type: patch
         path: gcc14.patch
+      - type: patch
+        path: gzdoom-pull-2987.patch
       - type: script
         commands:
           - '[ ! -f ~/.config/gzdoom/gzdoom.ini ] && cp /app/share/games/doom/gzdoom_portable.ini ~/.config/gzdoom/gzdoom.ini'
