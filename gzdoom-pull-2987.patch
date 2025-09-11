@@ -170,17 +170,6 @@ Subject: [PATCH 3/3] Fix building with GCC 15
  src/common/utility/r_memory.h                     | 1 +
  2 files changed, 2 insertions(+)
 
-diff --git a/libraries/ZWidget/include/zwidget/window/window.h b/libraries/ZWidget/include/zwidget/window/window.h
-index 0539f773f8a..4cdb748d80a 100644
---- a/libraries/ZWidget/include/zwidget/window/window.h
-+++ b/libraries/ZWidget/include/zwidget/window/window.h
-@@ -1,5 +1,6 @@
- #pragma once
- 
-+#include <cstdint>
- #include <memory>
- #include <string>
- #include <functional>
 diff --git a/src/common/utility/r_memory.h b/src/common/utility/r_memory.h
 index d9db538ca4b..41abe0be5e0 100644
 --- a/src/common/utility/r_memory.h
