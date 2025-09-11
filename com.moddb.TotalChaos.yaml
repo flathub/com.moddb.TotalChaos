@@ -43,6 +43,7 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     build-options:
       env:  
         CXXFLAGS: -Wno-error=template-id-cdtor -Wno-template-id-cdtor
