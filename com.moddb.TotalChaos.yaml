@@ -94,7 +94,7 @@ modules:
       - type: file
         path: totalchaos.sh
     build-commands:
-      - install -Dm 644 totalchaos.pk3 -t /app/share/games/doom
+      - install -Dm 644 totalchaos.pk3 /app/share/games/doom
       - install -Dm 644 zd_extra.pk3 -t /app/share/games/doom
       - install -Dm 644 gzdoom_portable.ini -t /app/share/games/doom
       - install -Dm 644 ${FLATPAK_ID}.appdata.xml -t /app/share/appdata
