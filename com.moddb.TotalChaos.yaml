@@ -77,8 +77,7 @@ modules:
         url: https://github.com/freedoom/freedoom/releases/download/v0.12.1/freedoom-0.12.1.zip
         sha256: f42c6810fc89b0282de1466c2c9c7c9818031a8d556256a6db1b69f6a77b5806
     build-commands:
-      - install -d /app/share/games/doom
-      - install -Dm 644 freedoom2.wad -t /app/share/games/doom
+      - install -Dm 644 freedoom2.wad -t /app/share/games/uzdoom
 
   - name: totalchaos
     buildsystem: simple
@@ -95,9 +94,9 @@ modules:
       - type: file
         path: totalchaos.sh
     build-commands:
-      - install -Dm 644 totalchaos.pk3 -t /app/share/games/doom
-      - install -Dm 644 zd_extra.pk3 -t /app/share/games/doom
-      - install -Dm 644 gzdoom_portable.ini -t /app/share/games/doom
+      - install -Dm 644 totalchaos.pk3 -t /app/share/games/uzdoom
+      - install -Dm 644 zd_extra.pk3 -t /app/share/games/uzdoom
+      - install -Dm 644 gzdoom_portable.ini -t /app/share/games/uzdoom
       - install -Dm 644 ${FLATPAK_ID}.appdata.xml -t /app/share/appdata
       - install -Dm 644 ${FLATPAK_ID}.desktop -t /app/share/applications
       - install -Dm 644 ${FLATPAK_ID}.png -t /app/share/icons/hicolor/128x128/apps
