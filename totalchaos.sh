@@ -3,11 +3,11 @@
 # Total Chaos launcher script
 
 # Migrate existing (legacy) config if present
-if [ -f ~/.config/gzdoom/gzdoom.ini ]; then
+if [ -f ~/.var/app/${FLATPAK_ID}/.config/gzdoom/gzdoom.ini ]; then
     if [ ! -f /var/config/uzdoom/uzdoom.ini ]; then
         echo "Copying existing gzdoom.ini to uzdoom.ini"
         mkdir -p /var/config/uzdoom
-        cp ~/.config/gzdoom/gzdoom.ini /var/config/uzdoom/uzdoom.ini
+        cp ~/.var/app/${FLATPAK_ID}/.config/gzdoom/gzdoom.ini /var/config/uzdoom/uzdoom.ini
     fi
 fi
 
