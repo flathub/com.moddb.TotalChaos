@@ -11,8 +11,8 @@ fi
 if [ ! -f /var/config/uzdoom/uzdoom.ini ]; then
     echo "Copying default gzdoom_portable.ini to uzdoom.ini"
     mkdir -p /var/config/uzdoom
-    cp /app/share/games/doom/gzdoom_portable.ini /var/config/uzdoom/uzdoom.ini
+    cp /app/share/games/uzdoom/gzdoom_portable.ini /var/config/uzdoom/uzdoom.ini
 fi
 
 # Run game engine
-exec uzdoom -file totalchaos.pk3 +fluid_patchset /app/share/games/doom/soundfonts/gzdoom.sf2 "$@"
+exec uzdoom -file totalchaos.pk3 +fluid_patchset /app/share/games/uzdoom/soundfonts/gzdoom.sf2 "$@"
