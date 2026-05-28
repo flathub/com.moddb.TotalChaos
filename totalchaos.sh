@@ -21,4 +21,4 @@ fi
 # Run game engine
 exec uzdoom -iwad freedoom2.wad \
     -file totalchaos.pk3 \
-    +set fluid_patchset /app/share/games/uzdoom/soundfonts/gzdoom.sf2 "$@"
+    +set fluid_patchset /app/share/games/uzdoom/soundfonts/uzdoom.sf2 "$@"
