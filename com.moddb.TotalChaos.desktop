@@ -5,6 +5,5 @@ Type=Application
 Icon=com.moddb.TotalChaos
 Keywords=first;person;shooter;doom;
 Categories=Game;ActionGame;
-Exec=gzdoom.sh
-StartupWMClass=gzdoom
+Exec=totalchaos.sh
 PrefersNonDefaultGPU=true

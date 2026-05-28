@@ -1,5 +1,8 @@
 #!/usr/bin/bash
+#
+# Total Chaos launcher script
 
+# Migrate existing (legacy) config if present
 if [ -f ~/.config/gzdoom/gzdoom.ini ]; then
     if [ ! -f /var/config/uzdoom/uzdoom.ini ]; then
         echo "Copying existing gzdoom.ini to uzdoom.ini"
@@ -8,6 +11,7 @@ if [ -f ~/.config/gzdoom/gzdoom.ini ]; then
     fi
 fi
 
+# Copy default config if not present
 if [ ! -f /var/config/uzdoom/uzdoom.ini ]; then
     echo "Copying default gzdoom_portable.ini to uzdoom.ini"
     mkdir -p /var/config/uzdoom
@@ -15,4 +19,6 @@ if [ ! -f /var/config/uzdoom/uzdoom.ini ]; then
 fi
 
 # Run game engine
-exec uzdoom -file totalchaos.pk3 +fluid_patchset /app/share/games/uzdoom/soundfonts/gzdoom.sf2 "$@"
+exec uzdoom -iwad freedoom2.wad \
+    -file totalchaos.pk3 \
+    +set fluid_patchset /app/share/games/uzdoom/soundfonts/gzdoom.sf2 "$@"
