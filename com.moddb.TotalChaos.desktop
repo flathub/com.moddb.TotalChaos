@@ -7,3 +7,4 @@ Keywords=first;person;shooter;doom;
 Categories=Game;ActionGame;
 Exec=totalchaos.sh
 PrefersNonDefaultGPU=true
+StartupWMClass=com.moddb.TotalChaos

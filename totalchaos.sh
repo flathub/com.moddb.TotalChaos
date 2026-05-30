@@ -18,6 +18,12 @@ if [ ! -f /var/config/uzdoom/uzdoom.ini ]; then
     cp /app/share/games/uzdoom/gzdoom_portable.ini /var/config/uzdoom/uzdoom.ini
 fi
 
+WM_CLASS="${FLATPAK_ID:-uzdoom}"
+
+# Export environment variables for SDL2 (UZDoom)
+export SDL_VIDEO_X11_WMCLASS="$WM_CLASS"
+export SDL_VIDEO_WAYLAND_WMCLASS="$WM_CLASS"
+
 # Run game engine
 exec uzdoom -iwad freedoom2.wad \
     -file totalchaos.pk3 \
