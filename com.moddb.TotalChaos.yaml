@@ -8,8 +8,6 @@ finish-args:
   - --socket=wayland
   - --socket=fallback-x11
   - --share=ipc
-  # 3D hardware acceleration
-  - --device=dri
   # Audio
   - --socket=pulseaudio
 cleanup:
