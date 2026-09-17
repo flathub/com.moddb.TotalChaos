@@ -10,6 +10,7 @@ finish-args:
   - --share=ipc
   # Audio
   - --socket=pulseaudio
+  - --filesystem=xdg-run/pipewire-0
 cleanup:
   - /include
   - /lib/*.a
@@ -25,48 +26,22 @@ modules:
   - shared-modules/linux-audio/libinstpatch.json
   - shared-modules/linux-audio/fluidsynth2.json
 
-  - name: game-music-emu
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-    sources:
-      - type: archive
-        url: https://github.com/libgme/game-music-emu/archive/refs/tags/0.6.5.tar.gz
-        sha256: 8531678502451c2cf04248cda45c8b4645e19fcfb63e6a7ec2549641c47bb392
-        x-checker-data:
-          type: anitya
-          project-id: 866
-          stable-only: true
-          url-template: https://github.com/libgme/game-music-emu/archive/refs/tags/$version.tar.gz
-
-  - name: zmusic
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-    sources:
-      - type: archive
-        url: https://github.com/UZDoom/ZMusic/archive/1.3.0.tar.gz
-        sha256: 2eccd41e1cc9b38b3729ab94d65635719b2adc916de4ca9f8399ebceaee89f7f
-        x-checker-data:
-          type: anitya
-          project-id: 153600
-          stable-only: true
-          url-template: https://github.com/UZDoom/ZMusic/archive/$version.tar.gz
-
   - name: uzdoom
     buildsystem: cmake-ninja
+    builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DCMAKE_CXX_FLAGS=-DSHARE_DIR=\"/app/share\"
+      - -DBUILD_FLATPAK=ON
     sources:
       - type: git
         url: https://github.com/UZDoom/UZDoom
         tag: 5.0.1
         commit: b92a83674b76c295a51c2ca21ee9b3085526fecb
+        disable-shallow-clone: true
         x-checker-data:
-          type: json
-          url: https://api.github.com/repos/UZDoom/UZDoom/releases/latest
-          tag-query: .tag_name
+          type: git
+          version-scheme: semantic
 
   - name: freedoom2
     buildsystem: simple
