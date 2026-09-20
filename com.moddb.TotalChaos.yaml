@@ -61,8 +61,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/UZDoom/UZDoom
-        tag: 4.14.3
-        commit: 1cb7598afadbe7ffe753b2eaf1b887e58e988036
+        tag: 5.0.1
+        commit: b92a83674b76c295a51c2ca21ee9b3085526fecb
         x-checker-data:
           type: json
           url: https://api.github.com/repos/UZDoom/UZDoom/releases/latest
