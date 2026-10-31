@@ -63,17 +63,13 @@ modules:
         url: https://github.com/UZDoom/UZDoom
         tag: 4.14.3
         commit: 1cb7598afadbe7ffe753b2eaf1b887e58e988036
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/UZDoom/UZDoom/releases/latest
-          tag-query: .tag_name
 
   - name: freedoom2
     buildsystem: simple
     sources:
       - type: archive
-        url: https://github.com/freedoom/freedoom/releases/download/v0.12.1/freedoom-0.12.1.zip
-        sha256: f42c6810fc89b0282de1466c2c9c7c9818031a8d556256a6db1b69f6a77b5806
+        url: https://github.com/freedoom/freedoom/releases/download/v0.13.0/freedoom-0.13.0.zip
+        sha256: 3f9b264f3e3ce503b4fb7f6bdcb1f419d93c7b546f4df3e874dd878db9688f59
     build-commands:
       - install -Dm 644 freedoom2.wad -t /app/share/games/uzdoom
 
